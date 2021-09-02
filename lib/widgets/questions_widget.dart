@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navegando_perguntas/models/question_model.dart';
 import 'package:navegando_perguntas/widgets/answer_buttons_widget.dart';
+import 'package:navegando_perguntas/widgets/result_widget.dart';
 
 class QuestionsWidget extends StatefulWidget {
   const QuestionsWidget({
@@ -35,36 +36,40 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    print(_currentIndex);
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(12),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 15,
+      child: _currentIndex < _questions.length
+          ? Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 15,
+                  ),
+                  child: Text(
+                    _questions[_currentIndex].description,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                AnswerButtonsWidget(
+                  options: _questions[_currentIndex].options,
+                  onPressed: (selectedAnswerIndex) {
+                    _questions[_currentIndex].answerIndex = selectedAnswerIndex;
+                    setState(() => _currentIndex++);
+                  },
+                ),
+              ],
+            )
+          : ResultWidget(
+              _questions,
+              onPressed: () {
+                setState(() => _currentIndex = 0);
+              },
             ),
-            child: Text(
-              _questions[_currentIndex].description,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 18,
-              ),
-            ),
-          ),
-          AnswerButtonsWidget(
-            options: _questions[_currentIndex].options,
-            onPressed: (selectedAnswerIndex) {
-              setState(() {
-                if (selectedAnswerIndex < _questions.length) {
-                  _questions[_currentIndex].answerIndex = selectedAnswerIndex;
-                  _currentIndex++;
-                } else {}
-              });
-            },
-          ),
-        ],
-      ),
     );
   }
 }

@@ -4,7 +4,7 @@ class QuestionModel {
     required this.options,
   });
 
-  int? answerIndex;
+  late int answerIndex;
 
   final String description;
   final List<String> options;
