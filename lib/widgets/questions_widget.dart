@@ -1,46 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:navegando_perguntas/models/question_model.dart';
+import 'package:navegando_perguntas/model/question_model.dart';
 import 'package:navegando_perguntas/widgets/answer_buttons_widget.dart';
 import 'package:navegando_perguntas/widgets/result_widget.dart';
 
 class QuestionsWidget extends StatefulWidget {
   const QuestionsWidget({
+    required this.questions,
     Key? key,
   }) : super(key: key);
+
+  final List<QuestionModel> questions;
 
   @override
   _QuestionsWidgetState createState() => _QuestionsWidgetState();
 }
 
 class _QuestionsWidgetState extends State<QuestionsWidget> {
-  final _questions = [
-    QuestionModel(
-      description: 'Qual é a sua cor favorita?',
-      options: ['Azul', 'Preto', 'Amarelo'],
-    ),
-    QuestionModel(
-      description: 'Qual é o seu animal favorito?',
-      options: ['Leão', 'Elefante', 'Tartaruga', 'Cavalo'],
-    ),
-    QuestionModel(
-      description: 'Qual é o seu esporte preferido?',
-      options: ['Voleibol', 'Futebol', 'Basquetebol'],
-    ),
-    QuestionModel(
-      description: 'Qual é a sua disciplina favorita?',
-      options: ['Matemática', 'Inglês', 'Geografia', 'Biologia', 'História'],
-    ),
-  ];
-
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    print(_currentIndex);
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(12),
-      child: _currentIndex < _questions.length
+      child: _currentIndex < widget.questions.length
           ? Column(
               children: [
                 Padding(
@@ -48,7 +31,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                     bottom: 15,
                   ),
                   child: Text(
-                    _questions[_currentIndex].description,
+                    widget.questions[_currentIndex].description,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 18,
@@ -56,16 +39,17 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                   ),
                 ),
                 AnswerButtonsWidget(
-                  options: _questions[_currentIndex].options,
+                  options: widget.questions[_currentIndex].options,
                   onPressed: (selectedAnswerIndex) {
-                    _questions[_currentIndex].answerIndex = selectedAnswerIndex;
+                    widget.questions[_currentIndex].answerIndex =
+                        selectedAnswerIndex;
                     setState(() => _currentIndex++);
                   },
                 ),
               ],
             )
           : ResultWidget(
-              _questions,
+              widget.questions,
               onPressed: () {
                 setState(() => _currentIndex = 0);
               },

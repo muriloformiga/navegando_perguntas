@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navegando_perguntas/data/mocked_data.dart';
 import 'package:navegando_perguntas/widgets/questions_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,9 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: QuestionsWidget(),
+        child: QuestionsWidget(
+          questions: MockedData.questions,
+        ),
       ),
     );
   }

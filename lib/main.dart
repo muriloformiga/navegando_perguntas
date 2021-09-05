@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navegando_perguntas/pages/home_page.dart';
+import 'package:navegando_perguntas/page/home_page.dart';
 
 void main() => runApp(NavegacaoPerguntaApp());
 

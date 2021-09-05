@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navegando_perguntas/models/question_model.dart';
+import 'package:navegando_perguntas/model/question_model.dart';
 
 class ResultWidget extends StatelessWidget {
   const ResultWidget(
