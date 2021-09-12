@@ -18,4 +18,5 @@ Projeto simples feito em Flutter para fins de estudo dos seguintes tópicos:
 - Flutter 2.0.4
 
 ### Demonstração
-![example gif](https://raw.githubusercontent.com/muriloformiga/navegando_perguntas/main/example.gif)
+
+<img src="https://raw.githubusercontent.com/muriloformiga/navegando_perguntas/main/example.gif" alt="example gif" height="350" />
