@@ -1,16 +1,21 @@
-# navegando_perguntas
 
-A new Flutter project.
+# Navegando Perguntas
 
-## Getting Started
+Projeto simples feito em Flutter para fins de estudo dos seguintes tópicos:
 
-This project is a starting point for a Flutter application.
+- 🚥 Mudança de estados com setState
+- 🧪 Teste de Integração
+- 🧩 Teste de Widgets
+- 📌 Releases do GitHub
 
-A few resources to get you started if this is your first Flutter project:
+### Release
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Baixar o APK do projeto](https://github.com/muriloformiga/navegando_perguntas/releases/tag/example)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Versões
+
+- Dart 2.12.2
+- Flutter 2.0.4
+
+### Demonstração
+![example gif](https://raw.githubusercontent.com/muriloformiga/navegando_perguntas/main/example.gif)
